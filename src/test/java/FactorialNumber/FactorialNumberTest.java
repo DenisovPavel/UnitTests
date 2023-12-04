@@ -10,16 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FactorialNumberTest {
     private FactorialNumber factorialNumber;
 
-    @BeforeAll
-    static void beforeAll() {
-        // Здесь могут быть глобальные операции инициализации
-    }
-
-    @AfterAll
-    static void afterAll() {
-        // Здесь могут быть глобальные операции завершения
-    }
-
     @BeforeEach
     void setUp() {
         factorialNumber = new FactorialNumber();

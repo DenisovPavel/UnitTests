@@ -42,7 +42,7 @@ class CarTest {
     @Test
     @DisplayName("Car speed in TestDrive is 60 km")
     void checkCarTestDriveSpeed() {
-        assertEquals(60, car.testDrive());
+        assertEquals(60, car.testDrive(),.001);// 3 arg -> предотвратит возможные проблемы с округлением
     }
 // - проверить, что в режиме парковки (сначала testDrive, потом park, т.е эмуляция движения транспорта)
 // машина останавливается (speed = 0)
@@ -50,7 +50,9 @@ class CarTest {
     @DisplayName("Park Test")
     void checkCarSpeedInPark() {
         car.testDrive();
-        int a = 0;
-        assertEquals(car.park(),a);
+//        int a = 0;
+//        assertEquals(car.park(),a);
+        car.testDrive();
+        assertEquals(0,car.park());
     }
 }

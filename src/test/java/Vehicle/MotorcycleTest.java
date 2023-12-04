@@ -31,7 +31,7 @@ class MotorcycleTest {
     @Test
     @DisplayName("Motocycle speed TestDrive is 75")
     void checkMotoSpeedTestDrive() {
-        assertEquals(75, motorcycle.testDrive());
+        assertEquals(75, motorcycle.testDrive(),.001);// 3 arg -> предотвратит возможные проблемы с округлением
     }
 
     //- проверить, что в режиме парковки (сначала testDrive,
