@@ -1,7 +1,7 @@
 package TDD;
 
 public class User {
-
+    int userId;
     String name;
     String password;
 
@@ -13,9 +13,13 @@ public class User {
 
     }
 
+    public User(int userId, String johnDoe) {
+    }
+
     //3.6.
     public boolean authenticate(String name, String password) {
         return false;
     }
+
 
 }

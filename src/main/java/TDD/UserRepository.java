@@ -3,10 +3,14 @@ package TDD;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository {
+public class UserRepository extends User{
 
     // Тут можно хранить аутентифицированных пользователей
     List<User> data = new ArrayList<>();
+
+    public UserRepository(String name, String password, boolean isAdmin) {
+        super(name, password, isAdmin);
+    }
 
     public void addUser(User user) {
        //..
@@ -21,4 +25,7 @@ public class UserRepository {
         return false;
     }
 
+    public int getUserById(int userId) {
+        return userId;
+    }
 }
