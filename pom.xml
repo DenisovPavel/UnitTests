@@ -59,10 +59,12 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version> <!-- Замените на актуальную версию Selenium WebDriver -->
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.16.1</version>
         </dependency>
 
 
