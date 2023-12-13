@@ -58,7 +58,7 @@ class ListCompareTest {
     }
 
     @Test
-    @DisplayName("Second list average value bigger than second!")
+    @DisplayName("Second list average value bigger than first!")
     void compareListToCheckTestThree()throws Exception {
         assertEquals("Second list has bigger average value than first!",
                 listCompareOne.compareListToCheck(listOne, listThree));
