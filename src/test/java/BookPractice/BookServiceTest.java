@@ -2,46 +2,33 @@ package BookPractice;
 
 import org.junit.jupiter.api.*;
 import org.mockito.InOrder;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookServiceTest {
-
-
     @Test
     @DisplayName("Тест 1 (Pozitive) ")
     void checkFindBookByIdVirtual() {
         VirtualBookRepository virtualBookRepository = mock(VirtualBookRepository.class);
         BookService bookService = new BookService(virtualBookRepository);
-
         // создаем виртуальное хранилище книг
         final Map<String, Book> virtualBooks = new HashMap<>();
         virtualBooks.put("1", new Book("1", "Book1", "Author1"));
         virtualBooks.put("2", new Book("2", "Book2", "Author2"));
-
         // проверяем работу метода.
-
         bookService.findBookByIdVirtual("1");
         bookService.findBookByIdVirtual("2");
         bookService.findBookByIdVirtual("2");
-
         // Проверяем принадлежность findByBookId -> virtualBookRepository;
         verify(virtualBookRepository).findByBookId("1");
-
         // Проверяем что метод  findByBookId был вызван только один раз.
         verify(virtualBookRepository, times(1)).findByBookId("1");
-
         // Проверяем что метод  findByBookId был вызван дважды.
         verify(virtualBookRepository, times(2)).findByBookId("2");
-
         //  Проверяем что метод  findByBookId не был вызван по ID c arg "3";
         verify(virtualBookRepository, never()).findByBookId("3");
-
-
     }
 
     @Test
@@ -64,16 +51,16 @@ class BookServiceTest {
         virtualBooks.put("10", new Book("10", "Book10", "Author10"));
 
         // проверяем работу метода.
-        bookService.findAllBooksVirtual();//1
-        bookService.findAllBooksVirtual();//2
-        bookService.findAllBooksVirtual();//3
-        bookService.findAllBooksVirtual();//4
-        bookService.findAllBooksVirtual();//5
-        bookService.findAllBooksVirtual();//6
-        bookService.findAllBooksVirtual();//7
-        bookService.findAllBooksVirtual();//8
-        bookService.findAllBooksVirtual();//9
-        bookService.findAllBooksVirtual();//10
+        bookService.findAllBooksVirtual(); //1
+        bookService.findAllBooksVirtual(); //2
+        bookService.findAllBooksVirtual(); //3
+        bookService.findAllBooksVirtual(); //4
+        bookService.findAllBooksVirtual(); //5
+        bookService.findAllBooksVirtual(); //6
+        bookService.findAllBooksVirtual(); //7
+        bookService.findAllBooksVirtual(); //8
+        bookService.findAllBooksVirtual(); //9
+        bookService.findAllBooksVirtual(); //10
 
         // Проверяем что метод  findByBookId был вызван только один раз.
         verify(virtualBookRepository, times(10)).findAllBooks();
@@ -89,20 +76,15 @@ class BookServiceTest {
     void checkFindBookByIdVirtualNegative1() {
         VirtualBookRepository virtualBookRepository = mock(VirtualBookRepository.class);
         BookService bookService = new BookService(virtualBookRepository);
-
         // создаем виртуальное хранилище книг
         final Map<String, Book> virtualBooks = new HashMap<>();
         virtualBooks.put("1", new Book("1", "Book1", "Author1"));
         virtualBooks.put("2", new Book("2", "Book2", "Author2"));
-
         // проверяем работу метода.
         bookService.findBookByIdVirtual("1");
         bookService.findBookByIdVirtual("2");
-
         // Проверяем что метод  findByBookId был вызван только один раз - ожидаем негативный результат!
         verify(virtualBookRepository, times(5)).findByBookId("1");
-
-
     }
 
     @Test
@@ -128,7 +110,6 @@ class BookServiceTest {
 
     }
 
-
     @Test
     @Disabled
     @DisplayName("Тест 3 (Negative)")
@@ -150,20 +131,19 @@ class BookServiceTest {
         virtualBooks.put("10", new Book("10", "Book10", "Author10"));
 
         // проверяем работу метода.
-        bookService.findAllBooksVirtual();//1
-        bookService.findAllBooksVirtual();//2
-        bookService.findAllBooksVirtual();//3
-        bookService.findAllBooksVirtual();//4
-        bookService.findAllBooksVirtual();//5
-        bookService.findAllBooksVirtual();//6
-        bookService.findAllBooksVirtual();//7
-        bookService.findAllBooksVirtual();//8
-        bookService.findAllBooksVirtual();//9
-        bookService.findAllBooksVirtual();//10
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
+        bookService.findAllBooksVirtual();
 
         // Проверяем что метод  findByBookId был вызван только один раз - ожидаем негативный результат!
         verify(virtualBookRepository, times(15)).findAllBooks();
-
 
     }
 
@@ -213,6 +193,4 @@ class BookServiceTest {
         inOrder.verify(virtualBookRepository).findByBookId("2");
         inOrder.verify(virtualBookRepository).findByBookId("1");
     }
-
-
 }
